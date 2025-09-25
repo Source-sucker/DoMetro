@@ -345,13 +345,6 @@
   }
 
   /* Dashboard Mockups */
-  .mockup-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  height: 75vh;
-  }
-
   .mockup {
   background: white;
   border: 3px solid #2c3e50;
@@ -361,6 +354,14 @@
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  }
+  
+  /* Style for single mockups on a slide */
+  .slide-content > .mockup {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      height: 75vh;
   }
 
   .mockup-header {
@@ -678,6 +679,7 @@
     .system-description { font-size: 1rem; }
     .title-slide h1 { font-size: 1.8rem; }
     .title-slide .subtitle { font-size: 1rem; }
+    .section-header { margin-bottom: 20px; }
     .section-header h2 { font-size: 1.6rem; }
     .roi-number { font-size: 2.2rem; }
 
@@ -702,17 +704,12 @@
     }
     .flow-step[style] { grid-column: auto !important; }
     .arrow { display: none; }
-
-    /* Mockups & Dashboards */
-    .mockup-container {
-      grid-template-columns: 1fr;
+    
+    /* Single Mockup */
+    .slide-content > .mockup {
       height: auto;
-      gap: 25px;
+      margin-top: 20px;
     }
-    .mockup-content {
-      height: auto;
-    }
-    /* Login form adjustments */
     .mockup-content[style*="text-align: center"] { padding: 25px; }
     
     /* Compliance Alerts */
@@ -768,6 +765,8 @@
   <div class="indicator" onclick="goToSlide(3)"></div>
   <div class="indicator" onclick="goToSlide(4)"></div>
   <div class="indicator" onclick="goToSlide(5)"></div>
+  <div class="indicator" onclick="goToSlide(6)"></div>
+  <div class="indicator" onclick="goToSlide(7)"></div>
  </div>
 
  <div class="slide active title-slide">
@@ -892,175 +891,182 @@
  </div>
 
  <div class="slide">
-  <div class="slide-content">
-  <div class="section-header">
-  <h2>User Interface Design</h2>
-  </div>
-  <div class="mockup-container">
-  <div class="mockup">
-  <div class="mockup-header">
-  <h3>🔐 Secure Login Portal</h3>
-  </div>
-  <div class="mockup-content" style="text-align: center; padding: 40px;">
-  <div class="login-logo-container">
-  <div class="login-official-logo">
-  <div class="login-metro-icon">🚇</div>
-  <div class="login-checkmark">✓</div>
-  </div>
-  <div class="login-brand-text">
-  <div style="font-size: 1.8rem; font-weight: bold; color: #2c3e50;">DocuMetro</div>
-  <div style="font-size: 0.8rem; color: #4a90e2; font-weight: 600;">Government of India</div>
-  <div style="font-size: 0.8rem; color: #5ba3f5;">Smart Metro Management</div>
-  <div style="font-size: 0.7rem; color: #95a5a6; font-style: italic; margin-top: 2px;">by Kalki</div>
-  </div>
-  </div>
-  <h3 style="margin-bottom: 30px; color: #2c3e50; font-size: 1.3rem;">Document Management Portal</h3>
-  <input type="text" placeholder="Employee ID" style="width: 100%; padding: 15px; margin-bottom: 15px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
-  <input type="password" placeholder="Password" style="width: 100%; padding: 15px; margin-bottom: 20px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
-  <select style="width: 100%; padding: 15px; margin-bottom: 20px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
-  <option>Select Department</option>
-  <option>Administration</option>
-  <option>Engineering</option>
-  <option>Operations</option>
-  <option>Safety</option>
-  <option>Finance</option>
-  <option>Procurement</option>
-  </select>
-  <button class="btn-primary" style="width: 100%; font-size: 1.1rem;">Secure Login</button>
-  <p style="margin-top: 20px; font-size: 0.9rem; color: #7f8c8d;">Government of Kerala - Official System</p>
-  </div>
-  </div>
-
-  <div class="mockup">
-  <div class="mockup-header">
-  <h3>📊 Department Dashboard</h3>
-  </div>
-  <div class="mockup-content">
-  <div class="dashboard-tiles">
-  <div class="tile">
-  <div style="font-size: 2rem; margin-bottom: 10px; color: #e74c3c;">🚨</div>
-  <h4 style="color: #2c3e50;">Critical Alerts</h4>
-  <p style="font-size: 1.8rem; color: #e74c3c; font-weight: bold; margin: 5px 0;">3</p>
-  <p style="font-size: 0.8rem; color: #7f8c8d;">Requires immediate attention</p>
-  </div>
-  <div class="tile">
-  <div style="font-size: 2rem; margin-bottom: 10px; color: #27ae60;">📄</div>
-  <h4 style="color: #2c3e50;">Documents Processed</h4>
-  <p style="font-size: 1.8rem; color: #27ae60; font-weight: bold; margin: 5px 0;">1,247</p>
-  <p style="font-size: 0.8rem; color: #7f8c8d;">This month</p>
-  </div>
-  <div class="tile">
-  <div style="font-size: 2rem; margin-bottom: 10px; color: #2c3e50;">🔍</div>
-  <h4 style="color: #2c3e50;">Quick Search</h4>
-  <p style="color: #7f8c8d; font-size: 0.9rem;">Search across 50,000+ documents</p>
-  </div>
-  <div class="tile">
-  <div style="font-size: 2rem; margin-bottom: 10px; color: #f39c12;">🤝</div>
-  <h4 style="color: #2c3e50;">Collaboration</h4>
-  <p style="color: #7f8c8d; font-size: 0.9rem;">Inter-department sharing</p>
-  </div>
-  </div>
-  <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 6px; border: 2px solid #e9ecef;">
-  <h4 style="color: #2c3e50; margin-bottom: 15px;">📈 Recent Activity</h4>
-  <div style="font-size: 0.9rem; color: #7f8c8d; line-height: 1.6;">
-  <p>• Safety protocol document processed and summarized</p>
-  <p>• Compliance certificate renewal alert generated</p>
-  <p>• 23 documents translated to Malayalam</p>
-  <p>• Procurement tender documents uploaded</p>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+    <div class="slide-content">
+        <div class="section-header">
+            <h2>Secure Login Portal</h2>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header">
+                <h3>🔐 Secure Login Portal</h3>
+            </div>
+            <div class="mockup-content" style="text-align: center; padding: 40px;">
+                <div class="login-logo-container">
+                    <div class="login-official-logo">
+                        <div class="login-metro-icon">🚇</div>
+                        <div class="login-checkmark">✓</div>
+                    </div>
+                    <div class="login-brand-text">
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #2c3e50;">DocuMetro</div>
+                        <div style="font-size: 0.8rem; color: #4a90e2; font-weight: 600;">Government of India</div>
+                        <div style="font-size: 0.8rem; color: #5ba3f5;">Smart Metro Management</div>
+                        <div style="font-size: 0.7rem; color: #95a5a6; font-style: italic; margin-top: 2px;">by Kalki</div>
+                    </div>
+                </div>
+                <h3 style="margin-bottom: 30px; color: #2c3e50; font-size: 1.3rem;">Document Management Portal</h3>
+                <input type="text" placeholder="Employee ID" style="width: 100%; padding: 15px; margin-bottom: 15px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
+                <input type="password" placeholder="Password" style="width: 100%; padding: 15px; margin-bottom: 20px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
+                <select style="width: 100%; padding: 15px; margin-bottom: 20px; background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 4px; color: #2c3e50; font-family: Arial, sans-serif;">
+                    <option>Select Department</option>
+                    <option>Administration</option>
+                    <option>Engineering</option>
+                    <option>Operations</option>
+                    <option>Safety</option>
+                    <option>Finance</option>
+                    <option>Procurement</option>
+                </select>
+                <button class="btn-primary" style="width: 100%; font-size: 1.1rem;">Secure Login</button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #7f8c8d;">Government of Kerala - Official System</p>
+            </div>
+        </div>
+    </div>
  </div>
 
  <div class="slide">
-  <div class="slide-content">
-  <div class="section-header">
-  <h2>Document Search & AI Analysis</h2>
-  </div>
-  <div class="mockup-container">
-  <div class="mockup">
-  <div class="mockup-header">
-  <h3>🔍 Advanced Document Search</h3>
-  </div>
-  <div class="mockup-content">
-  <input class="search-bar" placeholder="Search documents, content, or ask questions about policies...">
-  <div class="filter-chips">
-  <div class="chip">📅 Last 90 days</div>
-  <div class="chip">🏢 Engineering Dept</div>
-  <div class="chip">🌐 Malayalam</div>
-  <div class="chip">📋 Safety Protocols</div>
-  </div>
+    <div class="slide-content">
+        <div class="section-header">
+            <h2>Department Dashboard</h2>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header">
+                <h3>📊 Department Dashboard</h3>
+            </div>
+            <div class="mockup-content">
+                <div class="dashboard-tiles">
+                    <div class="tile">
+                        <div style="font-size: 2rem; margin-bottom: 10px; color: #e74c3c;">🚨</div>
+                        <h4 style="color: #2c3e50;">Critical Alerts</h4>
+                        <p style="font-size: 1.8rem; color: #e74c3c; font-weight: bold; margin: 5px 0;">3</p>
+                        <p style="font-size: 0.8rem; color: #7f8c8d;">Requires immediate attention</p>
+                    </div>
+                    <div class="tile">
+                        <div style="font-size: 2rem; margin-bottom: 10px; color: #27ae60;">📄</div>
+                        <h4 style="color: #2c3e50;">Documents Processed</h4>
+                        <p style="font-size: 1.8rem; color: #27ae60; font-weight: bold; margin: 5px 0;">1,247</p>
+                        <p style="font-size: 0.8rem; color: #7f8c8d;">This month</p>
+                    </div>
+                    <div class="tile">
+                        <div style="font-size: 2rem; margin-bottom: 10px; color: #2c3e50;">🔍</div>
+                        <h4 style="color: #2c3e50;">Quick Search</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9rem;">Search across 50,000+ documents</p>
+                    </div>
+                    <div class="tile">
+                        <div style="font-size: 2rem; margin-bottom: 10px; color: #f39c12;">🤝</div>
+                        <h4 style="color: #2c3e50;">Collaboration</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9rem;">Inter-department sharing</p>
+                    </div>
+                </div>
+                <div style="margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 6px; border: 2px solid #e9ecef;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">📈 Recent Activity</h4>
+                    <div style="font-size: 0.9rem; color: #7f8c8d; line-height: 1.6;">
+                        <p>• Safety protocol document processed and summarized</p>
+                        <p>• Compliance certificate renewal alert generated</p>
+                        <p>• 23 documents translated to Malayalam</p>
+                        <p>• Procurement tender documents uploaded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 
-  <div class="doc-result">
-  <h4>📄 Metro Safety Guidelines 2024.pdf</h4>
-  <p style="color: #7f8c8d; margin: 8px 0; line-height: 1.5; font-size: 0.9rem;">
-  <strong>AI Summary:</strong> Comprehensive safety protocols for metro operations including emergency evacuation procedures, maintenance safety guidelines, passenger safety measures, and staff training requirements. Document emphasizes zero-incident operations.
-  </p>
-  <div class="doc-meta">
-  <span>🏷️ Safety Protocol</span>
-  <span>📅 August 15, 2024</span>
-  <span>👤 Safety Department</span>
-  <span>📊 45 pages</span>
-  </div>
-  </div>
+ <div class="slide">
+    <div class="slide-content">
+        <div class="section-header">
+            <h2>Advanced Document Search</h2>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header">
+                <h3>🔍 Advanced Document Search</h3>
+            </div>
+            <div class="mockup-content">
+                <input class="search-bar" placeholder="Search documents, content, or ask questions about policies...">
+                <div class="filter-chips">
+                    <div class="chip">📅 Last 90 days</div>
+                    <div class="chip">🏢 Engineering Dept</div>
+                    <div class="chip">🌐 Malayalam</div>
+                    <div class="chip">📋 Safety Protocols</div>
+                </div>
+                <div class="doc-result">
+                    <h4>📄 Metro Safety Guidelines 2024.pdf</h4>
+                    <p style="color: #7f8c8d; margin: 8px 0; line-height: 1.5; font-size: 0.9rem;">
+                        <strong>AI Summary:</strong> Comprehensive safety protocols for metro operations including emergency evacuation procedures, maintenance safety guidelines, passenger safety measures, and staff training requirements. Document emphasizes zero-incident operations.
+                    </p>
+                    <div class="doc-meta">
+                        <span>🏷️ Safety Protocol</span>
+                        <span>📅 August 15, 2024</span>
+                        <span>👤 Safety Department</span>
+                        <span>📊 45 pages</span>
+                    </div>
+                </div>
+                <div class="doc-result">
+                    <h4>📧 Procurement Guidelines Update - Q3 2024</h4>
+                    <p style="color: #7f8c8d; margin: 8px 0; line-height: 1.5; font-size: 0.9rem;">
+                        <strong>AI Summary:</strong> Updated procurement procedures following Government of Kerala guidelines. Includes vendor evaluation criteria, tender process modifications, and cost optimization strategies for metro operations.
+                    </p>
+                    <div class="doc-meta">
+                        <span>🏷️ Procurement</span>
+                        <span>📅 August 28, 2024</span>
+                        <span>👤 Procurement Officer</span>
+                        <span>📊 12 pages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 
-  <div class="doc-result">
-  <h4>📧 Procurement Guidelines Update - Q3 2024</h4>
-  <p style="color: #7f8c8d; margin: 8px 0; line-height: 1.5; font-size: 0.9rem;">
-  <strong>AI Summary:</strong> Updated procurement procedures following Government of Kerala guidelines. Includes vendor evaluation criteria, tender process modifications, and cost optimization strategies for metro operations.
-  </p>
-  <div class="doc-meta">
-  <span>🏷️ Procurement</span>
-  <span>📅 August 28, 2024</span>
-  <span>👤 Procurement Officer</span>
-  <span>📊 12 pages</span>
-  </div>
-  </div>
-  </div>
-  </div>
-
-  <div class="mockup">
-  <div class="mockup-header">
-  <h3>🤖 AI Document Analysis</h3>
-  </div>
-  <div class="mockup-content">
-  <div style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 6px; padding: 15px; margin-bottom: 20px; ">
-  <h4 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-  📄 Original Document
-  <span style="font-size: 0.8rem; background: #2c3e50; color: white; padding: 2px 8px; border-radius: 3px;">45 pages</span>
-  </h4>
-  <div style="font-size: 0.85rem; color: #7f8c8d; line-height: 1.5;">
-  <p><strong>Kerala Metro Rail Limited - Safety Protocol Document</strong></p>
-  <p style="margin-top: 12px;">This comprehensive document outlines safety procedures and guidelines for metro rail operations. It covers emergency evacuation procedures, maintenance protocols, passenger safety measures, staff training requirements, incident reporting procedures...</p>
-  </div>
-  </div>
-
-  <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 2px solid #2c3e50; border-radius: 6px; padding: 18px;">
-  <h4 style="color: #2c3e50; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-  ✨ AI-Generated Summary
-  <span style="font-size: 0.7rem; background: #27ae60; color: white; padding: 2px 6px; border-radius: 3px;">PROCESSED</span>
-  </h4>
-  <div style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-  <p><strong>📋 Key Points:</strong></p>
-  <ul style="margin-left: 20px; margin-bottom: 15px;">
-  <li>Emergency evacuation time: 3-5 minutes via designated exits</li>
-  <li>Daily safety inspections mandatory before operations</li>
-  </ul>
-  <p><strong>⚡ Action Items:</strong></p>
-  <ul style="margin-left: 20px; margin-bottom: 15px;">
-  <li>Update evacuation signage at all stations (Due: Sept 15, 2024)</li>
-  <li>Schedule Q4 safety training for all staff (Due: Oct 1, 2024)</li>
-  </ul>
-  <p><strong>🎯 Compliance Status:</strong> <span style="color: #27ae60; font-weight: 600;">98% Compliant</span></p>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+ <div class="slide">
+    <div class="slide-content">
+        <div class="section-header">
+            <h2>AI Document Analysis</h2>
+        </div>
+        <div class="mockup">
+            <div class="mockup-header">
+                <h3>🤖 AI Document Analysis</h3>
+            </div>
+            <div class="mockup-content">
+                <div style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        📄 Original Document
+                        <span style="font-size: 0.8rem; background: #2c3e50; color: white; padding: 2px 8px; border-radius: 3px;">45 pages</span>
+                    </h4>
+                    <div style="font-size: 0.85rem; color: #7f8c8d; line-height: 1.5;">
+                        <p><strong>Kerala Metro Rail Limited - Safety Protocol Document</strong></p>
+                        <p style="margin-top: 12px;">This comprehensive document outlines safety procedures and guidelines for metro rail operations. It covers emergency evacuation procedures, maintenance protocols, passenger safety measures, staff training requirements, incident reporting procedures...</p>
+                    </div>
+                </div>
+                <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 2px solid #2c3e50; border-radius: 6px; padding: 18px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        ✨ AI-Generated Summary
+                        <span style="font-size: 0.7rem; background: #27ae60; color: white; padding: 2px 6px; border-radius: 3px;">PROCESSED</span>
+                    </h4>
+                    <div style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
+                        <p><strong>📋 Key Points:</strong></p>
+                        <ul style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>Emergency evacuation time: 3-5 minutes via designated exits</li>
+                            <li>Daily safety inspections mandatory before operations</li>
+                        </ul>
+                        <p><strong>⚡ Action Items:</strong></p>
+                        <ul style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>Update evacuation signage at all stations (Due: Sept 15, 2024)</li>
+                            <li>Schedule Q4 safety training for all staff (Due: Oct 1, 2024)</li>
+                        </ul>
+                        <p><strong>🎯 Compliance Status:</strong> <span style="color: #27ae60; font-weight: 600;">98% Compliant</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
  </div>
 
  <div class="slide">
@@ -1116,22 +1122,6 @@
   </div>
   </div>
   
-  <div class="alert-info">
-  <div style="display: flex; align-items: center; justify-content: space-between;">
-  <div style="display: flex; align-items: center; gap: 15px;">
-  <div class="icon" style="font-size: 2.2rem;">ℹ️</div>
-  <div>
-  <h4 style="color: #2c5aa0; margin-bottom: 5px;">Training Schedule Published</h4>
-  <p style="color: #2a4a6b; font-size: 0.95rem;">Q4 2024 Safety Training Calendar Available</p>
-  <p style="color: #2a4a6b; font-size: 0.85rem; margin-top: 5px;">All departments - Registration opens September 1, 2024</p>
-  </div>
-  </div>
-  <div style="display: flex; gap: 10px; flex-shrink: 0;">
-  <button class="btn-primary">View Schedule</button>
-  <button class="btn-secondary" style="font-size: 0.9rem;">Notify Teams</button>
-  </div>
-  </div>
-  </div>
   </div>
   </div>
  </div>
